@@ -69,7 +69,7 @@ const convertElementInsideSvgToReactElement = (svgFile, isNative) => {
 
 const loopAllVariant = (iconsAllVariant, isNative) => {
   const loop = iconsAllVariant.map((iav) => {
-    return `const ${iav.variant} = ({color,strokeWidth}) => (<>${convertElementInsideSvgToReactElement(
+    return `const ${iav.variant} = ({color,strokeWidth=2.5}) => (<>${convertElementInsideSvgToReactElement(
       iav.svgFile,
       isNative,
     )}</>)`;
