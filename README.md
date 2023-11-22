@@ -1,4 +1,6 @@
-<h1 align="center">iconsax for React and React Native</h1>
+<h1 align="center">iconsax for React Native</h1>
+
+<a href="https://www.npmjs.com/package/iconsax-react">for React</a>
 
 <p align="center">
   1000 icons in 6 different styles, total 6000 icons | 
@@ -9,23 +11,14 @@ Perfectly balance |
 <p align="center">
   <a href="https://iconsax-react.pages.dev/"><strong>Browse icons at site</strong></a>
 </p>
+
 <br>
 <br>
 
-> ©️ iconsax [github](https://github.com/lusaxweb/iconsax) and
-> [official website](https://iconsax.io/) (other format and platform available)
+> ©️ iconsax <a href="https://github.com/lusaxweb/iconsax">github</a> and
+> <a href="https://iconsax.io/">official website</a>(other format and platform available)
 
 ## Installation
-
-### React
-
-```bash
-yarn add iconsax-react
-# or
-npm i iconsax-react
-```
-
-### React Native
 
 ```bash
 yarn add iconsax-react-native react-native-svg
@@ -37,8 +30,8 @@ npm i iconsax-react-native react-native-svg
 
 ```jsx
 import React from 'react';
-//import icon. for React Native import from 'iconsax-react-native'
-import { EmojiHappy } from 'iconsax-react';
+//import icon.
+import { EmojiHappy } from 'iconsax-react-native';
 
 const Example = () => {
   // then use it as a normal React Component
@@ -64,8 +57,9 @@ You can configure Icons with inline props:
 
 ## Contributing
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md)
+See
+<a href="https://github.com/rendinjast/iconsax-react/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>
 
 ## License
 
-[MIT](./LICENSE)
+<a href="https://github.com/rendinjast/iconsax-react/blob/main/LICENSE">MIT</a>
