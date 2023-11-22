@@ -36,6 +36,7 @@ const convertAttrsToReactAttrs = (obj) => {
     let newValue = obj[key];
     if (newValue.match(/^(#292D32|#17191C|#000)$/)) newValue = '%%{color}%%';
     if (newKey.match(/^(width|height)$/) && newValue.match('24')) newValue = '%%{size}%%';
+    if (newKey === "strokeWidth") newValue = '%%{strokeWidth}%%';
 
     return { [newKey]: newValue };
   });
@@ -68,7 +69,7 @@ const convertElementInsideSvgToReactElement = (svgFile, isNative) => {
 
 const loopAllVariant = (iconsAllVariant, isNative) => {
   const loop = iconsAllVariant.map((iav) => {
-    return `const ${iav.variant} = ({color}) => (<>${convertElementInsideSvgToReactElement(
+    return `const ${iav.variant} = ({color,strokeWidth}) => (<>${convertElementInsideSvgToReactElement(
       iav.svgFile,
       isNative,
     )}</>)`;
