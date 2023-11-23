@@ -11,7 +11,7 @@ var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
 var Svg__default = /*#__PURE__*/_interopDefaultLegacy(Svg);
 
-var _excluded = ["variant", "color", "size"];
+var _excluded = ["variant", "color", "size", "strokeWidth"];
 
 var Bold = function Bold(_ref) {
   var color = _ref.color;
@@ -28,7 +28,7 @@ var Bold = function Bold(_ref) {
 var Broken = function Broken(_ref2) {
   var color = _ref2.color,
       _ref2$strokeWidth = _ref2.strokeWidth,
-      strokeWidth = _ref2$strokeWidth === void 0 ? 2.5 : _ref2$strokeWidth;
+      strokeWidth = _ref2$strokeWidth === void 0 ? 2 : _ref2$strokeWidth;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Svg.Path, {
     d: "M18.02 4.86c-1.2-1.2-2.85-1.14-3.66.15l-1.77 2.8 5.67 5.67 2.8-1.77c1.21-.76 1.28-2.53.14-3.66M11.29 21.482l-4.27.5c-1.84.21-3.16-1.11-2.94-2.94l.98-8.28",
     stroke: color,
@@ -70,7 +70,7 @@ var Bulk = function Bulk(_ref3) {
 var Linear = function Linear(_ref4) {
   var color = _ref4.color,
       _ref4$strokeWidth = _ref4.strokeWidth,
-      strokeWidth = _ref4$strokeWidth === void 0 ? 2.5 : _ref4$strokeWidth;
+      strokeWidth = _ref4$strokeWidth === void 0 ? 2 : _ref4$strokeWidth;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Svg.Path, {
     stroke: color,
     strokeLinecap: "round",
@@ -124,7 +124,7 @@ var Outline = function Outline(_ref5) {
 var TwoTone = function TwoTone(_ref6) {
   var color = _ref6.color,
       _ref6$strokeWidth = _ref6.strokeWidth,
-      strokeWidth = _ref6$strokeWidth === void 0 ? 2.5 : _ref6$strokeWidth;
+      strokeWidth = _ref6$strokeWidth === void 0 ? 2 : _ref6$strokeWidth;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Svg.G, {
     opacity: ".4",
     stroke: color,
@@ -145,41 +145,48 @@ var TwoTone = function TwoTone(_ref6) {
   }));
 };
 
-var chooseVariant = function chooseVariant(variant, color) {
+var chooseVariant = function chooseVariant(variant, color, strokeWidth) {
   switch (variant) {
     case 'Bold':
       return /*#__PURE__*/React__default["default"].createElement(Bold, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Broken':
       return /*#__PURE__*/React__default["default"].createElement(Broken, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Bulk':
       return /*#__PURE__*/React__default["default"].createElement(Bulk, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Linear':
       return /*#__PURE__*/React__default["default"].createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Outline':
       return /*#__PURE__*/React__default["default"].createElement(Outline, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'TwoTone':
       return /*#__PURE__*/React__default["default"].createElement(TwoTone, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     default:
       return /*#__PURE__*/React__default["default"].createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
   }
 };
@@ -188,6 +195,7 @@ var PenAdd = /*#__PURE__*/React.forwardRef(function (_ref7, ref) {
   var variant = _ref7.variant,
       color = _ref7.color,
       size = _ref7.size,
+      strokeWidth = _ref7.strokeWidth,
       rest = _rollupPluginBabelHelpers._objectWithoutProperties(_ref7, _excluded);
 
   return /*#__PURE__*/React__default["default"].createElement(Svg__default["default"], _rollupPluginBabelHelpers._extends({}, rest, {
@@ -197,7 +205,7 @@ var PenAdd = /*#__PURE__*/React.forwardRef(function (_ref7, ref) {
     height: size,
     viewBox: "0 0 24 24",
     fill: "none"
-  }), chooseVariant(variant, color));
+  }), chooseVariant(variant, color, strokeWidth));
 });
 PenAdd.propTypes = {
   variant: PropTypes__default["default"].oneOf(['Linear', 'Bold', 'Broken', 'Bulk', 'Outline', 'TwoTone']),

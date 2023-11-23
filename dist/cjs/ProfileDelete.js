@@ -11,7 +11,7 @@ var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
 var Svg__default = /*#__PURE__*/_interopDefaultLegacy(Svg);
 
-var _excluded = ["variant", "color", "size"];
+var _excluded = ["variant", "color", "size", "strokeWidth"];
 
 var Bold = function Bold(_ref) {
   var color = _ref.color;
@@ -25,7 +25,7 @@ var Bold = function Bold(_ref) {
 var Broken = function Broken(_ref2) {
   var color = _ref2.color,
       _ref2$strokeWidth = _ref2.strokeWidth,
-      strokeWidth = _ref2$strokeWidth === void 0 ? 2.5 : _ref2$strokeWidth;
+      strokeWidth = _ref2$strokeWidth === void 0 ? 2 : _ref2$strokeWidth;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Svg.Path, {
     d: "m18.41 18.09-2.82 2.82M18.41 20.91l-2.82-2.82M12 21.81c-1.82 0-3.63-.46-5.01-1.38-2.42-1.62-2.42-4.26 0-5.87 2.75-1.84 7.26-1.84 10.01 0M15.679 3.96c.48.71.76 1.56.76 2.48-.01 2.4-1.9 4.35-4.28 4.43-.1-.01-.22-.01-.33 0a4.42 4.42 0 0 1-4.27-4.43c0-2.45 1.98-4.44 4.44-4.44",
     stroke: color,
@@ -54,7 +54,7 @@ var Bulk = function Bulk(_ref3) {
 var Linear = function Linear(_ref4) {
   var color = _ref4.color,
       _ref4$strokeWidth = _ref4.strokeWidth,
-      strokeWidth = _ref4$strokeWidth === void 0 ? 2.5 : _ref4$strokeWidth;
+      strokeWidth = _ref4$strokeWidth === void 0 ? 2 : _ref4$strokeWidth;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Svg.Path, {
     d: "m18.41 18.09-2.82 2.82M18.41 20.91l-2.82-2.82M12.16 10.87c-.1-.01-.22-.01-.33 0a4.42 4.42 0 0 1-4.27-4.43C7.56 3.99 9.54 2 12 2a4.435 4.435 0 0 1 .16 8.87ZM12 21.81c-1.82 0-3.63-.46-5.01-1.38-2.42-1.62-2.42-4.26 0-5.87 2.75-1.84 7.26-1.84 10.01 0",
     stroke: color,
@@ -82,7 +82,7 @@ var Outline = function Outline(_ref5) {
 var TwoTone = function TwoTone(_ref6) {
   var color = _ref6.color,
       _ref6$strokeWidth = _ref6.strokeWidth,
-      strokeWidth = _ref6$strokeWidth === void 0 ? 2.5 : _ref6$strokeWidth;
+      strokeWidth = _ref6$strokeWidth === void 0 ? 2 : _ref6$strokeWidth;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Svg.G, {
     opacity: ".4",
     stroke: color,
@@ -107,41 +107,48 @@ var TwoTone = function TwoTone(_ref6) {
   }));
 };
 
-var chooseVariant = function chooseVariant(variant, color) {
+var chooseVariant = function chooseVariant(variant, color, strokeWidth) {
   switch (variant) {
     case 'Bold':
       return /*#__PURE__*/React__default["default"].createElement(Bold, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Broken':
       return /*#__PURE__*/React__default["default"].createElement(Broken, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Bulk':
       return /*#__PURE__*/React__default["default"].createElement(Bulk, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Linear':
       return /*#__PURE__*/React__default["default"].createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Outline':
       return /*#__PURE__*/React__default["default"].createElement(Outline, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'TwoTone':
       return /*#__PURE__*/React__default["default"].createElement(TwoTone, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     default:
       return /*#__PURE__*/React__default["default"].createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
   }
 };
@@ -150,6 +157,7 @@ var ProfileDelete = /*#__PURE__*/React.forwardRef(function (_ref7, ref) {
   var variant = _ref7.variant,
       color = _ref7.color,
       size = _ref7.size,
+      strokeWidth = _ref7.strokeWidth,
       rest = _rollupPluginBabelHelpers._objectWithoutProperties(_ref7, _excluded);
 
   return /*#__PURE__*/React__default["default"].createElement(Svg__default["default"], _rollupPluginBabelHelpers._extends({}, rest, {
@@ -159,7 +167,7 @@ var ProfileDelete = /*#__PURE__*/React.forwardRef(function (_ref7, ref) {
     height: size,
     viewBox: "0 0 24 24",
     fill: "none"
-  }), chooseVariant(variant, color));
+  }), chooseVariant(variant, color, strokeWidth));
 });
 ProfileDelete.propTypes = {
   variant: PropTypes__default["default"].oneOf(['Linear', 'Bold', 'Broken', 'Bulk', 'Outline', 'TwoTone']),

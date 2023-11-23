@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-var _excluded = ["variant", "color", "size"];
+var _excluded = ["variant", "color", "size", "strokeWidth"];
 
 var Bold = function Bold(_ref) {
   var color = _ref.color;
@@ -17,7 +17,7 @@ var Bold = function Bold(_ref) {
 var Broken = function Broken(_ref2) {
   var color = _ref2.color,
       _ref2$strokeWidth = _ref2.strokeWidth,
-      strokeWidth = _ref2$strokeWidth === void 0 ? 2.5 : _ref2$strokeWidth;
+      strokeWidth = _ref2$strokeWidth === void 0 ? 2 : _ref2$strokeWidth;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Path, {
     d: "m6.06 15.58 5.61-9.61c.16-.28.56-.3.75-.04l1.56 2.09c.45.6.48 1.41.09 2.05l-3.34 5.35c-.33.53-.91.85-1.54.85H6.45c-.35-.01-.57-.39-.39-.69ZM15.24 12.37l-1.92 3.2c-.18.3.04.69.39.69h3.84c.35 0 .57-.38.39-.69l-1.92-3.2c-.17-.29-.6-.29-.78 0Z",
     stroke: color,
@@ -50,7 +50,7 @@ var Bulk = function Bulk(_ref3) {
 var Linear = function Linear(_ref4) {
   var color = _ref4.color,
       _ref4$strokeWidth = _ref4.strokeWidth,
-      strokeWidth = _ref4$strokeWidth === void 0 ? 2.5 : _ref4$strokeWidth;
+      strokeWidth = _ref4$strokeWidth === void 0 ? 2 : _ref4$strokeWidth;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Path, {
     d: "M6.1 15.6 11.7 6c.2-.3.6-.3.8 0L14 8c.4.6.5 1.4.1 2l-3.3 5.3c-.3.5-.9.9-1.5.9H6.4c-.3.1-.5-.3-.3-.6ZM15.2 12.4l-1.9 3.2c-.2.3 0 .7.4.7h3.8c.4 0 .6-.4.4-.7L16 12.4c-.2-.3-.6-.3-.8 0Z",
     stroke: color,
@@ -81,7 +81,7 @@ var Outline = function Outline(_ref5) {
 var TwoTone = function TwoTone(_ref6) {
   var color = _ref6.color,
       _ref6$strokeWidth = _ref6.strokeWidth,
-      strokeWidth = _ref6$strokeWidth === void 0 ? 2.5 : _ref6$strokeWidth;
+      strokeWidth = _ref6$strokeWidth === void 0 ? 2 : _ref6$strokeWidth;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Path, {
     opacity: ".4",
     d: "m6.06 15.58 5.61-9.61c.16-.28.56-.3.75-.04l1.56 2.09c.45.6.48 1.41.09 2.05l-3.34 5.35c-.33.53-.91.85-1.54.85H6.45c-.35-.01-.57-.39-.39-.69ZM15.24 12.37l-1.92 3.2c-.18.3.04.69.39.69h3.84c.35 0 .57-.38.39-.69l-1.92-3.2c-.17-.29-.6-.29-.78 0Z",
@@ -98,41 +98,48 @@ var TwoTone = function TwoTone(_ref6) {
   }));
 };
 
-var chooseVariant = function chooseVariant(variant, color) {
+var chooseVariant = function chooseVariant(variant, color, strokeWidth) {
   switch (variant) {
     case 'Bold':
       return /*#__PURE__*/React.createElement(Bold, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Broken':
       return /*#__PURE__*/React.createElement(Broken, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Bulk':
       return /*#__PURE__*/React.createElement(Bulk, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Linear':
       return /*#__PURE__*/React.createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Outline':
       return /*#__PURE__*/React.createElement(Outline, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'TwoTone':
       return /*#__PURE__*/React.createElement(TwoTone, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     default:
       return /*#__PURE__*/React.createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
   }
 };
@@ -141,6 +148,7 @@ var Avalanche = /*#__PURE__*/forwardRef(function (_ref7, ref) {
   var variant = _ref7.variant,
       color = _ref7.color,
       size = _ref7.size,
+      strokeWidth = _ref7.strokeWidth,
       rest = _objectWithoutProperties(_ref7, _excluded);
 
   return /*#__PURE__*/React.createElement(Svg, _extends({}, rest, {
@@ -150,7 +158,7 @@ var Avalanche = /*#__PURE__*/forwardRef(function (_ref7, ref) {
     height: size,
     viewBox: "0 0 24 24",
     fill: "none"
-  }), chooseVariant(variant, color));
+  }), chooseVariant(variant, color, strokeWidth));
 });
 Avalanche.propTypes = {
   variant: PropTypes.oneOf(['Linear', 'Bold', 'Broken', 'Bulk', 'Outline', 'TwoTone']),

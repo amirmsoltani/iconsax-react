@@ -11,7 +11,7 @@ var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
 var Svg__default = /*#__PURE__*/_interopDefaultLegacy(Svg);
 
-var _excluded = ["variant", "color", "size"];
+var _excluded = ["variant", "color", "size", "strokeWidth"];
 
 var Bold = function Bold(_ref) {
   var color = _ref.color;
@@ -27,7 +27,7 @@ var Bold = function Bold(_ref) {
 var Broken = function Broken(_ref2) {
   var color = _ref2.color,
       _ref2$strokeWidth = _ref2.strokeWidth,
-      strokeWidth = _ref2$strokeWidth === void 0 ? 2.5 : _ref2$strokeWidth;
+      strokeWidth = _ref2$strokeWidth === void 0 ? 2 : _ref2$strokeWidth;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Svg.Path, {
     clipRule: "evenodd",
     d: "M17.31 15.309c-.29.16-.53.23-.73.28-.17.04-.31.08-.43.16-.13.08-.14.21-.16.33-.02.11-.03.2-.11.26-.09.06-.26.07-.49.08-.3.02-.68.03-1.14.17-.22.08-.42.2-.62.32-.4.25-.85.52-1.64.52-.78 0-1.23-.27-1.63-.52-.2-.13-.4-.25-.63-.33a4.13 4.13 0 0 0-1.14-.17c-.23-.01-.39-.02-.49-.08-.08-.05-.09-.15-.11-.26-.02-.12-.03-.25-.16-.33-.12-.08-.27-.12-.43-.17-.2-.05-.44-.11-.73-.27-.34-.19-.14-.3-.03-.36 1.93-.93 2.23-2.37 2.24-2.48v-.02c.02-.12.03-.22-.11-.35-.09-.09-.4-.29-.65-.45-.11-.08-.21-.14-.27-.17-.28-.2-.4-.39-.31-.64.06-.17.22-.23.38-.23.05 0 .11.01.15.02.18.04.36.11.52.17.11.05.2.08.27.1.02.01.05.01.06.01.1 0 .13-.05.12-.15 0-.03 0-.06-.01-.09-.02-.35-.05-.96-.01-1.52.08-.84.35-1.27.67-1.63.16-.18.89-.95 2.28-.95 1.39 0 2.12.77 2.28.94.32.37.59.79.67 1.64.05.59.01 1.22-.02 1.57v.03c-.01.11.02.15.12.15.02 0 .04 0 .06-.01.07-.02.16-.05.27-.09.15-.06.33-.13.52-.17.05-.02.1-.02.15-.02.17 0 .32.07.38.24.09.24-.03.43-.31.63-.05.04-.15.11-.27.17-.24.16-.56.36-.65.45-.14.13-.13.23-.11.35v.02c.02.11.32 1.55 2.24 2.48.15.06.35.18.01.37Z",
@@ -62,7 +62,7 @@ var Bulk = function Bulk(_ref3) {
 var Linear = function Linear(_ref4) {
   var color = _ref4.color,
       _ref4$strokeWidth = _ref4.strokeWidth,
-      strokeWidth = _ref4$strokeWidth === void 0 ? 2.5 : _ref4$strokeWidth;
+      strokeWidth = _ref4$strokeWidth === void 0 ? 2 : _ref4$strokeWidth;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Svg.Path, {
     clipRule: "evenodd",
     d: "M17.3 15.3c-.3.2-.5.2-.7.3-.2 0-.3.1-.4.2-.2 0-.2.2-.2.3 0 .1 0 .2-.1.3-.1.1-.3.1-.5.1-.3 0-.7 0-1.1.2l-.6.3c-.4.3-.8.5-1.6.5s-1.2-.3-1.6-.5c-.2-.1-.4-.3-.6-.3-.4-.1-.8-.2-1.1-.2-.2 0-.4 0-.5-.1-.3-.1-.3-.2-.3-.3 0-.1 0-.3-.2-.3-.1-.1-.3-.1-.4-.2-.2-.1-.4-.1-.7-.3-.3-.2-.1-.3 0-.4 1.9-.9 2.2-2.4 2.2-2.5 0-.1 0-.2-.1-.3-.1-.1-.4-.3-.7-.4-.1-.1-.2-.1-.3-.2-.3-.2-.4-.4-.3-.6.1-.2.2-.2.4-.2h.2c.2 0 .4.1.5.2.1 0 .2.1.3.1H9c.1 0 .1 0 .1-.2v-.1c0-.3-.1-1 0-1.5.1-.8.3-1.3.7-1.6.2-.2.9-.9 2.3-.9s2.1.8 2.3.9c.3.4.6.8.7 1.6.1.6 0 1.2 0 1.6 0 .1 0 .2.1.2h.1c.1 0 .2-.1.3-.1.2-.1.3-.1.5-.2h.2c.2 0 .3.1.4.2.1.2 0 .4-.3.6-.1 0-.2.1-.3.2-.2.2-.6.4-.7.4-.1.1-.1.2-.1.3 0 .1.3 1.5 2.2 2.5 0 .1.2.2-.2.4Z",
@@ -94,7 +94,7 @@ var Outline = function Outline(_ref5) {
 var TwoTone = function TwoTone(_ref6) {
   var color = _ref6.color,
       _ref6$strokeWidth = _ref6.strokeWidth,
-      strokeWidth = _ref6$strokeWidth === void 0 ? 2.5 : _ref6$strokeWidth;
+      strokeWidth = _ref6$strokeWidth === void 0 ? 2 : _ref6$strokeWidth;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Svg.Path, {
     opacity: ".4",
     clipRule: "evenodd",
@@ -112,41 +112,48 @@ var TwoTone = function TwoTone(_ref6) {
   }));
 };
 
-var chooseVariant = function chooseVariant(variant, color) {
+var chooseVariant = function chooseVariant(variant, color, strokeWidth) {
   switch (variant) {
     case 'Bold':
       return /*#__PURE__*/React__default["default"].createElement(Bold, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Broken':
       return /*#__PURE__*/React__default["default"].createElement(Broken, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Bulk':
       return /*#__PURE__*/React__default["default"].createElement(Bulk, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Linear':
       return /*#__PURE__*/React__default["default"].createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Outline':
       return /*#__PURE__*/React__default["default"].createElement(Outline, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'TwoTone':
       return /*#__PURE__*/React__default["default"].createElement(TwoTone, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     default:
       return /*#__PURE__*/React__default["default"].createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
   }
 };
@@ -155,6 +162,7 @@ var Snapchat = /*#__PURE__*/React.forwardRef(function (_ref7, ref) {
   var variant = _ref7.variant,
       color = _ref7.color,
       size = _ref7.size,
+      strokeWidth = _ref7.strokeWidth,
       rest = _rollupPluginBabelHelpers._objectWithoutProperties(_ref7, _excluded);
 
   return /*#__PURE__*/React__default["default"].createElement(Svg__default["default"], _rollupPluginBabelHelpers._extends({}, rest, {
@@ -164,7 +172,7 @@ var Snapchat = /*#__PURE__*/React.forwardRef(function (_ref7, ref) {
     height: size,
     viewBox: "0 0 24 24",
     fill: "none"
-  }), chooseVariant(variant, color));
+  }), chooseVariant(variant, color, strokeWidth));
 });
 Snapchat.propTypes = {
   variant: PropTypes__default["default"].oneOf(['Linear', 'Bold', 'Broken', 'Bulk', 'Outline', 'TwoTone']),

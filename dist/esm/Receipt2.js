@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-var _excluded = ["variant", "color", "size"];
+var _excluded = ["variant", "color", "size", "strokeWidth"];
 
 var Bold = function Bold(_ref) {
   var color = _ref.color;
@@ -17,7 +17,7 @@ var Bold = function Bold(_ref) {
 var Broken = function Broken(_ref2) {
   var color = _ref2.color,
       _ref2$strokeWidth = _ref2.strokeWidth,
-      strokeWidth = _ref2$strokeWidth === void 0 ? 2.5 : _ref2$strokeWidth;
+      strokeWidth = _ref2$strokeWidth === void 0 ? 2 : _ref2$strokeWidth;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Path, {
     d: "M3 7.04c0-1.52.14-2.6.5-3.37 0-.01 0-.02.02-.03.57-.73 1.58-.55 2.71.66l.01.01c.82.87 2.07.8 2.78-.15l1.02-1.35c.4-.54.93-.81 1.46-.81.53 0 1.06.27 1.46.81l1.01 1.34c.72.96 1.98 1.03 2.8.15.69-.74 1.33-1.09 1.86-1.09.34 0 .63.15.85.43.02.01.02.02.02.03.36.77.5 1.85.5 3.37v9.92c0 1.52-.14 2.6-.5 3.37 0 .01-.01.03-.02.04-.22.28-.51.42-.85.42-.53 0-1.17-.35-1.86-1.09-.82-.88-2.08-.81-2.8.15l-1.01 1.34c-.4.54-.93.81-1.46.81-.53 0-1.06-.27-1.46-.81l-1.02-1.35c-.71-.95-1.96-1.02-2.78-.15l-.01.01c-1.13 1.21-2.13 1.39-2.71.67a.076.076 0 0 1-.02-.04c-.36-.77-.5-1.85-.5-3.37v-5.99M15 10.25h1M8 10.25h4M8 13.75h6",
     stroke: color,
@@ -43,7 +43,7 @@ var Bulk = function Bulk(_ref3) {
 var Linear = function Linear(_ref4) {
   var color = _ref4.color,
       _ref4$strokeWidth = _ref4.strokeWidth,
-      strokeWidth = _ref4$strokeWidth === void 0 ? 2.5 : _ref4$strokeWidth;
+      strokeWidth = _ref4$strokeWidth === void 0 ? 2 : _ref4$strokeWidth;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Path, {
     d: "M20 7.04v9.92c0 1.52-.14 2.6-.5 3.37 0 .01-.01.03-.02.04-.22.28-.51.42-.85.42-.53 0-1.17-.35-1.86-1.09-.82-.88-2.08-.81-2.8.15l-1.01 1.34c-.4.54-.93.81-1.46.81-.53 0-1.06-.27-1.46-.81l-1.02-1.35c-.71-.95-1.96-1.02-2.78-.15l-.01.01c-1.13 1.21-2.13 1.39-2.71.67a.076.076 0 0 1-.02-.04c-.36-.77-.5-1.85-.5-3.37V7.04c0-1.52.14-2.6.5-3.37 0-.01 0-.02.02-.03.57-.73 1.58-.55 2.71.66l.01.01c.82.87 2.07.8 2.78-.15l1.02-1.35c.4-.54.93-.81 1.46-.81.53 0 1.06.27 1.46.81l1.01 1.34c.72.96 1.98 1.03 2.8.15.69-.74 1.33-1.09 1.86-1.09.34 0 .63.15.85.43.02.01.02.02.02.03.36.77.5 1.85.5 3.37ZM8 10.25h8M8 13.75h6",
     stroke: color,
@@ -68,7 +68,7 @@ var Outline = function Outline(_ref5) {
 var TwoTone = function TwoTone(_ref6) {
   var color = _ref6.color,
       _ref6$strokeWidth = _ref6.strokeWidth,
-      strokeWidth = _ref6$strokeWidth === void 0 ? 2.5 : _ref6$strokeWidth;
+      strokeWidth = _ref6$strokeWidth === void 0 ? 2 : _ref6$strokeWidth;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Path, {
     d: "M20 7.04v9.92c0 1.52-.14 2.6-.5 3.37 0 .01-.01.03-.02.04-.22.28-.51.42-.85.42-.53 0-1.17-.35-1.86-1.09-.82-.88-2.08-.81-2.8.15l-1.01 1.34c-.4.54-.93.81-1.46.81-.53 0-1.06-.27-1.46-.81l-1.02-1.35c-.71-.95-1.96-1.02-2.78-.15l-.01.01c-1.13 1.21-2.13 1.39-2.71.67a.076.076 0 0 1-.02-.04c-.36-.77-.5-1.85-.5-3.37V7.04c0-1.52.14-2.6.5-3.37 0-.01 0-.02.02-.03.57-.73 1.58-.55 2.71.66l.01.01c.82.87 2.07.8 2.78-.15l1.02-1.35c.4-.54.93-.81 1.46-.81.53 0 1.06.27 1.46.81l1.01 1.34c.72.96 1.98 1.03 2.8.15.69-.74 1.33-1.09 1.86-1.09.34 0 .63.15.85.43.02.01.02.02.02.03.36.77.5 1.85.5 3.37Z",
     stroke: color,
@@ -85,41 +85,48 @@ var TwoTone = function TwoTone(_ref6) {
   }));
 };
 
-var chooseVariant = function chooseVariant(variant, color) {
+var chooseVariant = function chooseVariant(variant, color, strokeWidth) {
   switch (variant) {
     case 'Bold':
       return /*#__PURE__*/React.createElement(Bold, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Broken':
       return /*#__PURE__*/React.createElement(Broken, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Bulk':
       return /*#__PURE__*/React.createElement(Bulk, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Linear':
       return /*#__PURE__*/React.createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Outline':
       return /*#__PURE__*/React.createElement(Outline, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'TwoTone':
       return /*#__PURE__*/React.createElement(TwoTone, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     default:
       return /*#__PURE__*/React.createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
   }
 };
@@ -128,6 +135,7 @@ var Receipt2 = /*#__PURE__*/forwardRef(function (_ref7, ref) {
   var variant = _ref7.variant,
       color = _ref7.color,
       size = _ref7.size,
+      strokeWidth = _ref7.strokeWidth,
       rest = _objectWithoutProperties(_ref7, _excluded);
 
   return /*#__PURE__*/React.createElement(Svg, _extends({}, rest, {
@@ -137,7 +145,7 @@ var Receipt2 = /*#__PURE__*/forwardRef(function (_ref7, ref) {
     height: size,
     viewBox: "0 0 24 24",
     fill: "none"
-  }), chooseVariant(variant, color));
+  }), chooseVariant(variant, color, strokeWidth));
 });
 Receipt2.propTypes = {
   variant: PropTypes.oneOf(['Linear', 'Bold', 'Broken', 'Bulk', 'Outline', 'TwoTone']),

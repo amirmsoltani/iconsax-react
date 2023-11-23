@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import Svg, { Path } from 'react-native-svg';
 
-var _excluded = ["variant", "color", "size"];
+var _excluded = ["variant", "color", "size", "strokeWidth"];
 
 var Bold = function Bold(_ref) {
   var color = _ref.color;
@@ -20,7 +20,7 @@ var Bold = function Bold(_ref) {
 var Broken = function Broken(_ref2) {
   var color = _ref2.color,
       _ref2$strokeWidth = _ref2.strokeWidth,
-      strokeWidth = _ref2$strokeWidth === void 0 ? 2.5 : _ref2$strokeWidth;
+      strokeWidth = _ref2$strokeWidth === void 0 ? 2 : _ref2$strokeWidth;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Path, {
     d: "M6.96 3.102c1.63 0 3.07.78 3.97 1.99a4.957 4.957 0 0 1 3.97-1.99c2.74 0 4.96 2.23 4.96 4.99 0 .42-.03.83-.08 1.22a3.714 3.714 0 0 0-4.46 1.18c-.68-.9-1.76-1.49-2.98-1.49-2.05 0-3.71 1.67-3.71 3.74 0 2.68 1.42 4.73 3 6.12-.05.03-.1.04-.15.06-.3.11-.8.11-1.1 0C7.79 18.032 2 14.352 2 8.092c0-1.17.4-2.25 1.07-3.1",
     stroke: color,
@@ -52,7 +52,7 @@ var Bulk = function Bulk(_ref3) {
 var Linear = function Linear(_ref4) {
   var color = _ref4.color,
       _ref4$strokeWidth = _ref4.strokeWidth,
-      strokeWidth = _ref4$strokeWidth === void 0 ? 2.5 : _ref4$strokeWidth;
+      strokeWidth = _ref4$strokeWidth === void 0 ? 2 : _ref4$strokeWidth;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Path, {
     d: "M19.86 8.09c0 .42-.03.83-.08 1.22a3.714 3.714 0 0 0-4.46 1.18A3.73 3.73 0 0 0 12.34 9c-2.05 0-3.71 1.67-3.71 3.74 0 2.68 1.42 4.73 3 6.12-.05.03-.1.04-.15.06-.3.11-.8.11-1.1 0C7.79 18.03 2 14.35 2 8.09 2 5.33 4.22 3.1 6.96 3.1c1.63 0 3.07.78 3.97 1.99A4.957 4.957 0 0 1 14.9 3.1c2.74 0 4.96 2.23 4.96 4.99Z",
     stroke: color,
@@ -83,7 +83,7 @@ var Outline = function Outline(_ref5) {
 var TwoTone = function TwoTone(_ref6) {
   var color = _ref6.color,
       _ref6$strokeWidth = _ref6.strokeWidth,
-      strokeWidth = _ref6$strokeWidth === void 0 ? 2.5 : _ref6$strokeWidth;
+      strokeWidth = _ref6$strokeWidth === void 0 ? 2 : _ref6$strokeWidth;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Path, {
     opacity: ".4",
     d: "M19.86 8.092c0 .42-.03.83-.08 1.22a3.714 3.714 0 0 0-4.46 1.18c-.68-.9-1.76-1.49-2.98-1.49-2.05 0-3.71 1.67-3.71 3.74 0 2.68 1.42 4.73 3 6.12-.05.03-.1.04-.15.06-.3.11-.8.11-1.1 0C7.79 18.032 2 14.352 2 8.092c0-2.76 2.22-4.99 4.96-4.99 1.63 0 3.07.78 3.97 1.99a4.957 4.957 0 0 1 3.97-1.99c2.74 0 4.96 2.23 4.96 4.99Z",
@@ -100,41 +100,48 @@ var TwoTone = function TwoTone(_ref6) {
   }));
 };
 
-var chooseVariant = function chooseVariant(variant, color) {
+var chooseVariant = function chooseVariant(variant, color, strokeWidth) {
   switch (variant) {
     case 'Bold':
       return /*#__PURE__*/React.createElement(Bold, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Broken':
       return /*#__PURE__*/React.createElement(Broken, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Bulk':
       return /*#__PURE__*/React.createElement(Bulk, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Linear':
       return /*#__PURE__*/React.createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Outline':
       return /*#__PURE__*/React.createElement(Outline, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'TwoTone':
       return /*#__PURE__*/React.createElement(TwoTone, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     default:
       return /*#__PURE__*/React.createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
   }
 };
@@ -143,6 +150,7 @@ var Lovely = /*#__PURE__*/forwardRef(function (_ref7, ref) {
   var variant = _ref7.variant,
       color = _ref7.color,
       size = _ref7.size,
+      strokeWidth = _ref7.strokeWidth,
       rest = _objectWithoutProperties(_ref7, _excluded);
 
   return /*#__PURE__*/React.createElement(Svg, _extends({}, rest, {
@@ -152,7 +160,7 @@ var Lovely = /*#__PURE__*/forwardRef(function (_ref7, ref) {
     height: size,
     viewBox: "0 0 24 24",
     fill: "none"
-  }), chooseVariant(variant, color));
+  }), chooseVariant(variant, color, strokeWidth));
 });
 Lovely.propTypes = {
   variant: PropTypes.oneOf(['Linear', 'Bold', 'Broken', 'Bulk', 'Outline', 'TwoTone']),

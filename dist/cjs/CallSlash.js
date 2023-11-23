@@ -11,7 +11,7 @@ var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
 var Svg__default = /*#__PURE__*/_interopDefaultLegacy(Svg);
 
-var _excluded = ["variant", "color", "size"];
+var _excluded = ["variant", "color", "size", "strokeWidth"];
 
 var Bold = function Bold(_ref) {
   var color = _ref.color;
@@ -28,7 +28,7 @@ var Bold = function Bold(_ref) {
 var Broken = function Broken(_ref2) {
   var color = _ref2.color,
       _ref2$strokeWidth = _ref2.strokeWidth,
-      strokeWidth = _ref2$strokeWidth === void 0 ? 2.5 : _ref2$strokeWidth;
+      strokeWidth = _ref2$strokeWidth === void 0 ? 2 : _ref2$strokeWidth;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Svg.Path, {
     d: "M10.32 18.97c.14.11.28.21.43.32 1.14.83 2.29 1.49 3.44 1.98s2.24.73 3.26.73c.7 0 1.35-.13 1.95-.38.61-.25 1.15-.64 1.64-1.18.29-.32.51-.66.68-1.02.17-.36.25-.73.25-1.09 0-.28-.06-.53-.16-.78-.11-.25-.29-.46-.55-.64l-3.31-2.35c-.25-.17-.48-.3-.7-.39-.22-.09-.42-.13-.61-.13-.25 0-.48.07-.71.21-.23.12-.47.31-.72.56l-.76.75a.55.55 0 0 1-.41.17.69.69 0 0 1-.25-.04c-.07-.03-.13-.06-.18-.08-.19-.1-.41-.24-.65-.42M7.07 2.74a1.63 1.63 0 0 0-.67-.56A1.88 1.88 0 0 0 5.59 2c-.74 0-1.44.31-2.08.94-.53.5-.91 1.06-1.15 1.67-.24.6-.36 1.25-.36 1.93 0 1.04.24 2.13.72 3.27.48 1.13 1.14 2.27 1.96 3.41.83 1.14 1.76 2.23 2.79 3.27M10.73 13.222c-.52-.53-1-1.06-1.45-1.58-.44-.52-.75-.95-.93-1.28-.02-.06-.05-.12-.08-.2a.908.908 0 0 1-.03-.23c0-.16.05-.29.16-.4l.76-.79c.24-.24.43-.48.56-.71.14-.23.21-.47.21-.71 0-.19-.05-.4-.14-.61-.09-.22-.22-.45-.4-.7",
     stroke: color,
@@ -64,7 +64,7 @@ var Bulk = function Bulk(_ref3) {
 var Linear = function Linear(_ref4) {
   var color = _ref4.color,
       _ref4$strokeWidth = _ref4.strokeWidth,
-      strokeWidth = _ref4$strokeWidth === void 0 ? 2.5 : _ref4$strokeWidth;
+      strokeWidth = _ref4$strokeWidth === void 0 ? 2 : _ref4$strokeWidth;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Svg.Path, {
     d: "M10.32 18.97c.14.11.28.21.43.32 1.14.83 2.29 1.49 3.44 1.98s2.24.73 3.26.73c.7 0 1.35-.13 1.95-.38.61-.25 1.15-.64 1.64-1.18.29-.32.51-.66.68-1.02.17-.36.25-.73.25-1.09 0-.28-.06-.53-.16-.78-.11-.25-.29-.46-.55-.64l-3.31-2.35c-.25-.17-.48-.3-.7-.39-.22-.09-.42-.13-.61-.13-.25 0-.48.07-.71.21-.23.12-.47.31-.72.56l-.76.75a.55.55 0 0 1-.41.17.69.69 0 0 1-.25-.04c-.07-.03-.13-.06-.18-.08-.19-.1-.41-.24-.65-.42M10.73 13.22c-.52-.53-1-1.06-1.45-1.58-.44-.52-.75-.95-.93-1.28-.02-.06-.05-.12-.08-.2a.908.908 0 0 1-.03-.23c0-.16.05-.29.16-.4l.76-.79c.24-.24.43-.48.56-.71.14-.23.21-.47.21-.71 0-.19-.05-.4-.14-.61-.09-.22-.22-.45-.4-.7L7.07 2.74a1.63 1.63 0 0 0-.67-.56A1.88 1.88 0 0 0 5.59 2c-.74 0-1.44.31-2.08.94-.53.5-.91 1.06-1.15 1.67-.24.6-.36 1.25-.36 1.93 0 1.04.24 2.13.72 3.27.48 1.13 1.14 2.27 1.96 3.41.83 1.14 1.76 2.23 2.79 3.27",
     stroke: color,
@@ -96,7 +96,7 @@ var Outline = function Outline(_ref5) {
 var TwoTone = function TwoTone(_ref6) {
   var color = _ref6.color,
       _ref6$strokeWidth = _ref6.strokeWidth,
-      strokeWidth = _ref6$strokeWidth === void 0 ? 2.5 : _ref6$strokeWidth;
+      strokeWidth = _ref6$strokeWidth === void 0 ? 2 : _ref6$strokeWidth;
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Svg.Path, {
     opacity: ".4",
     d: "M10.32 18.97c.14.11.28.21.43.32 1.14.83 2.29 1.49 3.44 1.98s2.24.73 3.26.73c.7 0 1.35-.13 1.95-.38.61-.25 1.15-.64 1.64-1.18.29-.32.51-.66.68-1.02.17-.36.25-.73.25-1.09 0-.28-.06-.53-.16-.78-.11-.25-.29-.46-.55-.64l-3.31-2.35c-.25-.17-.48-.3-.7-.39-.22-.09-.42-.13-.61-.13-.25 0-.48.07-.71.21-.23.12-.47.31-.72.56l-.76.75a.55.55 0 0 1-.41.17.69.69 0 0 1-.25-.04c-.07-.03-.13-.06-.18-.08-.19-.1-.41-.24-.65-.42",
@@ -121,41 +121,48 @@ var TwoTone = function TwoTone(_ref6) {
   }));
 };
 
-var chooseVariant = function chooseVariant(variant, color) {
+var chooseVariant = function chooseVariant(variant, color, strokeWidth) {
   switch (variant) {
     case 'Bold':
       return /*#__PURE__*/React__default["default"].createElement(Bold, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Broken':
       return /*#__PURE__*/React__default["default"].createElement(Broken, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Bulk':
       return /*#__PURE__*/React__default["default"].createElement(Bulk, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Linear':
       return /*#__PURE__*/React__default["default"].createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'Outline':
       return /*#__PURE__*/React__default["default"].createElement(Outline, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     case 'TwoTone':
       return /*#__PURE__*/React__default["default"].createElement(TwoTone, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
 
     default:
       return /*#__PURE__*/React__default["default"].createElement(Linear, {
-        color: color
+        color: color,
+        strokeWidth: strokeWidth
       });
   }
 };
@@ -164,6 +171,7 @@ var CallSlash = /*#__PURE__*/React.forwardRef(function (_ref7, ref) {
   var variant = _ref7.variant,
       color = _ref7.color,
       size = _ref7.size,
+      strokeWidth = _ref7.strokeWidth,
       rest = _rollupPluginBabelHelpers._objectWithoutProperties(_ref7, _excluded);
 
   return /*#__PURE__*/React__default["default"].createElement(Svg__default["default"], _rollupPluginBabelHelpers._extends({}, rest, {
@@ -173,7 +181,7 @@ var CallSlash = /*#__PURE__*/React.forwardRef(function (_ref7, ref) {
     height: size,
     viewBox: "0 0 24 24",
     fill: "none"
-  }), chooseVariant(variant, color));
+  }), chooseVariant(variant, color, strokeWidth));
 });
 CallSlash.propTypes = {
   variant: PropTypes__default["default"].oneOf(['Linear', 'Bold', 'Broken', 'Bulk', 'Outline', 'TwoTone']),
