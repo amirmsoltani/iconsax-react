@@ -69,7 +69,7 @@ const convertElementInsideSvgToReactElement = (svgFile, isNative) => {
 
 const loopAllVariant = (iconsAllVariant, isNative) => {
   const loop = iconsAllVariant.map((iav) => {
-    return `const ${iav.variant} = ({color,strokeWidth=2.5}) => (<>${convertElementInsideSvgToReactElement(
+    return `const ${iav.variant} = ({color,strokeWidth=2}) => (<>${convertElementInsideSvgToReactElement(
       iav.svgFile,
       isNative,
     )}</>)`;
@@ -81,14 +81,14 @@ const switchStatementForVariants = (iconsAllVariant) => {
   const cases = iconsAllVariant.map(
     (iav) => `
   case '${iav.variant}':
-    return <${iav.variant} color={color} />
+    return <${iav.variant} color={color} strokeWidth={strokeWidth}/>
     `,
   );
-  return `const chooseVariant = (variant, color) => {
+  return `const chooseVariant = (variant, color,strokeWidth) => {
     switch (variant) {
       ${cases.join('')}
         default:
-        return <Linear color={color} />
+        return <Linear color={color} strokeWidth={strokeWidth}/>
     }
   };`;
 };
@@ -135,10 +135,10 @@ const react = async (icons) => {
        ${switchStatementForVariants(iconsAllVariant)}
 
        const ${ComponentName} =
-       forwardRef(({ variant , color, size , ...rest }, ref) => {
+       forwardRef(({ variant , color, size ,strokeWidth, ...rest }, ref) => {
           return (
               <svg {...rest} xmlns="http://www.w3.org/2000/svg" ref={ref} width={size} height={size} viewBox="0 0 24 24" fill="none">
-              {chooseVariant(variant, color)}
+              {chooseVariant(variant, color,strokeWidth)}
               </svg>)
        });
        ${ComponentName}.propTypes = {
@@ -215,10 +215,10 @@ const reactNative = async (icons) => {
          ${switchStatementForVariants(iconsAllVariant)}
 
          const ${ComponentName} =
-         forwardRef(({ variant , color, size , ...rest }, ref) => {
+         forwardRef(({ variant , color, size,strokeWidth , ...rest }, ref) => {
             return (
                 <Svg {...rest} xmlns="http://www.w3.org/2000/svg" ref={ref} width={size} height={size} viewBox="0 0 24 24" fill="none">
-                {chooseVariant(variant, color)}
+                {chooseVariant(variant, color,strokeWidth)}
                 </Svg>)
          });
          ${ComponentName}.propTypes = {
